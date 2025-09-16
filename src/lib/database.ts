@@ -20,24 +20,36 @@ export interface ImageRecord {
 
 // 数据库操作类
 export class DatabaseService {
+  // 执行SQL语句
+  static async execute(sql: string, args?: any[]) {
+    try {
+      if (args) {
+        return await client.execute({ sql, args })
+      } else {
+        return await client.execute(sql)
+      }
+    } catch (error) {
+      console.error('SQL执行失败:', error)
+      throw error
+    }
+  }
+
   // 初始化数据库表
   static async initTables() {
     try {
-      await client.execute(`
-        CREATE TABLE IF NOT EXISTS images (
-          id TEXT PRIMARY KEY,
-          filename TEXT NOT NULL,
-          original_name TEXT NOT NULL,
-          file_size INTEGER NOT NULL,
-          mime_type TEXT NOT NULL,
-          url TEXT NOT NULL,
-          upload_time DATETIME DEFAULT CURRENT_TIMESTAMP,
-          status TEXT DEFAULT 'active'
-        )
-      `)
-      console.log('数据库表初始化成功')
+      // 使用新的数据库初始化服务
+      const { DatabaseInitService } = await import('./database-init')
+      const result = await DatabaseInitService.initializeDatabase()
+      
+      if (result.success) {
+        console.log('✅ 数据库表初始化成功')
+        return result
+      } else {
+        throw new Error(result.error)
+      }
     } catch (error) {
-      console.error('数据库表初始化失败:', error)
+      console.error('❌ 数据库表初始化失败:', error)
+      throw error
     }
   }
 
