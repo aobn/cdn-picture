@@ -8,8 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog'
 import { toast } from 'sonner'
-import { useUpload } from '@/hooks/use-upload-simple'
-import DatabaseStatusComponent from '@/components/database-status'
+import { useUpload } from '@/hooks/use-upload-real'
 
 const UploadPage: React.FC = () => {
   const [isDragOver, setIsDragOver] = useState(false)
@@ -91,8 +90,6 @@ const UploadPage: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <div className="space-y-6">
-        {/* 数据库状态 */}
-        <DatabaseStatusComponent />
         {/* 上传区域 */}
         <Card>
           <CardHeader>

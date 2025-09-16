@@ -12,6 +12,7 @@ const CREATE_TABLES = [
     file_size INTEGER NOT NULL,
     mime_type TEXT NOT NULL,
     url TEXT NOT NULL,
+    file_data TEXT NOT NULL,
     thumbnail_url TEXT,
     width INTEGER,
     height INTEGER,
