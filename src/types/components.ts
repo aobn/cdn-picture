@@ -6,14 +6,6 @@ export interface ThemeState {
   setTheme: (theme: Theme) => void;
 }
 
-// 计数器状态类型
-export interface CounterState {
-  count: number;
-  increment: () => void;
-  decrement: () => void;
-  reset: () => void;
-}
-
 // UI组件类型
 export interface ButtonProps {
   variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';

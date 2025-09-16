@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '@/App';
-import HelloWorld from '@/pages/HelloWorld';
+import UploadPage from '@/pages/upload-page';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -8,7 +9,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HelloWorld />
+        element: <UploadPage />
       }
     ]
   }
