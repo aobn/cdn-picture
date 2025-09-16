@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-这是一个基于TypeScript + React Router v7 + shadcn/ui + Tailwind CSS+Zustand的React前端项目
+这是一个基于TypeScript + React Router v7 + shadcn/ui + Tailwind CSS+Zustand的React前端项目,使用pnpm作为包管理工具，使用Vite作为构建工具
 
 ## 开发规范
 
