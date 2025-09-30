@@ -11,4 +11,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    proxy: {
+      // 代理图片上传 API 请求
+      '/upload': {
+        target: 'https://api.cnb.cool',
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/upload/, '/goxi.top/2323wew/-/upload')
+      },
+    }
+  }
 })
